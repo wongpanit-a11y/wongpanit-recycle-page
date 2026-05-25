@@ -1,325 +1,587 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>กล่องเครื่องดื่มใช้แล้ว ขายได้ - วงษ์พาณิชย์</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-green: #2E7D32;
-            --light-green: #66BB6A;
-            --gold: #FFC107;
-            --dark-gray: #333333;
-            --white: #FFFFFF;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Kanit', sans-serif;
-        }
+<title>กล่องเครื่องดื่มใช้แล้ว ขายได้ | วงษ์พาณิชย์</title>
 
-        body {
-            background-color: #f4f9f4;
-            color: var(--dark-gray);
-            overflow-x: hidden;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+<style>
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+:root{
+    --green:#0b7a33;
+    --green-dark:#065223;
+    --green-light:#edf8f0;
+    --gold:#ffc928;
+    --white:#ffffff;
+    --text:#222;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:24px;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-green), #1b5e20);
-            color: var(--white);
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+body{
+    font-family:'Kanit',sans-serif;
+    background:#f4f8f4;
+    color:var(--text);
+    overflow-x:hidden;
+    line-height:1.8;
+}
 
-        .hero h1 {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease-out;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+img{
+    max-width:100%;
+    display:block;
+}
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1.2s ease-out;
-        }
+a{
+    text-decoration:none;
+}
 
-        .floating-carton {
-            width: 150px;
-            position: absolute;
-            opacity: 0.8;
-            animation: float 4s ease-in-out infinite;
-        }
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
 
-        .carton-1 { top: 10%; left: 5%; animation-delay: 0s; }
-        .carton-2 { bottom: 10%; right: 5%; animation-delay: 1s; width: 120px; }
+/* HERO */
 
-        /* Content Section */
-        .content {
-            max-width: 1000px;
-            margin: -40px auto 40px;
-            background: var(--white);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            animation: fadeInUp 1.5s ease-out;
-        }
+.hero{
+    position:relative;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    linear-gradient(135deg,var(--green),var(--green-dark));
+    color:white;
+    padding:90px 20px;
+    overflow:hidden;
+}
 
-        .highlight-box {
-            background: #fff3e0;
-            border-left: 5px solid var(--gold);
-            padding: 20px;
-            margin: 20px 0;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #d84315;
-            border-radius: 0 10px 10px 0;
-        }
+.hero::before{
+    content:"♻";
+    position:absolute;
+    right:-50px;
+    top:-50px;
+    font-size:320px;
+    opacity:.05;
+}
 
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 40px;
-        }
+.hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
 
-        .feature-card {
-            flex: 1;
-            min-width: 250px;
-            margin: 15px;
-            padding: 30px;
-            background: #f9f9f9;
-            border-radius: 15px;
-            border: 2px solid var(--light-green);
-            transition: transform 0.3s ease;
-        }
+.hero h1{
+    font-size:clamp(2.3rem,5vw,5rem);
+    line-height:1.1;
+    font-weight:800;
+    color:var(--gold);
+    margin-bottom:25px;
+}
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(102, 187, 106, 0.2);
-        }
+.hero p{
+    font-size:clamp(1rem,2vw,1.35rem);
+    max-width:900px;
+    margin:auto;
+    opacity:.95;
+}
 
-        .feature-card h3 {
-            color: var(--primary-green);
-            margin-bottom: 10px;
-        }
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
 
-        .character-img {
-            max-width: 300px;
-            margin: 30px auto;
-            display: block;
-            animation: float 5s ease-in-out infinite;
-        }
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:700;
+    transition:.3s;
+}
 
-        /* Call to Action */
-        .cta {
-            background: var(--primary-green);
-            color: var(--white);
-            text-align: center;
-            padding: 50px 20px;
-        }
+.btn-primary{
+    background:var(--gold);
+    color:#111;
+    box-shadow:0 10px 20px rgba(255,201,40,.25);
+}
 
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
+.btn-primary:hover{
+    transform:translateY(-5px);
+}
 
-        .btn {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--dark-gray);
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 10px;
-            animation: pulse 2s infinite;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
-            transition: all 0.3s ease;
-        }
+.btn-facebook{
+    background:#1877f2;
+    color:white;
+}
 
-        .btn:hover {
-            background: #ffca28;
-            transform: scale(1.1);
-        }
+.btn-facebook:hover{
+    transform:translateY(-5px);
+}
 
-        .btn-facebook {
-            background: #1877F2;
-            color: white;
-            box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
-        }
-        
-        .btn-facebook:hover {
-            background: #166fe5;
-        }
+/* SECTION */
 
-        /* Banner Image */
-        .banner-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .banner-container img {
-            width: 100%;
-            display: block;
-        }
+section{
+    padding:70px 0;
+}
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.2rem; }
-            .floating-carton { display: none; }
-        }
-    </style>
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:clamp(2rem,4vw,3.2rem);
+    color:var(--green-dark);
+    margin-bottom:15px;
+    line-height:1.2;
+}
+
+.section-title p{
+    color:#555;
+    max-width:800px;
+    margin:auto;
+}
+
+/* BANNER */
+
+.banner-container{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin-bottom:50px;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    background:white;
+}
+
+.gallery-item img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.05);
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:45px;
+}
+
+.feature-card{
+    background:white;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+    text-align:center;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+.feature-card h3{
+    color:var(--green-dark);
+    margin-bottom:15px;
+    font-size:1.4rem;
+}
+
+.feature-card p{
+    color:#555;
+}
+
+/* CONTENT */
+
+.content-box{
+    background:white;
+    padding:45px;
+    border-radius:30px;
+    box-shadow:var(--shadow);
+}
+
+.content-box p{
+    margin-bottom:24px;
+    color:#333;
+    font-size:1.05rem;
+}
+
+.content-box strong{
+    color:var(--green-dark);
+}
+
+.highlight-box{
+    margin:45px 0;
+    background:linear-gradient(135deg,#fff4c7,#ffe483);
+    padding:28px;
+    border-radius:22px;
+    border-left:7px solid var(--gold);
+    font-size:clamp(1.2rem,2vw,1.6rem);
+    font-weight:700;
+    text-align:center;
+    color:#654700;
+}
+
+/* INFO */
+
+.info-img{
+    width:100%;
+    border-radius:24px;
+    margin-top:40px;
+    box-shadow:var(--shadow);
+}
+
+/* MASCOT */
+
+.character-img{
+    width:min(320px,90%);
+    margin:50px auto 0;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* CTA */
+
+.cta{
+    background:
+    linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
+    linear-gradient(135deg,var(--green-dark),var(--green));
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.cta h2{
+    font-size:clamp(2rem,4vw,3.5rem);
+    color:var(--gold);
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.cta p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+.cta-buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#04200e;
+    color:rgba(255,255,255,.7);
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:70px 20px;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .hero-buttons,
+    .cta-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .content-box{
+        padding:25px 20px;
+        border-radius:22px;
+    }
+
+    .content-box p{
+        font-size:1rem;
+        line-height:1.9;
+    }
+
+    .gallery-item img{
+        height:250px;
+    }
+
+    .highlight-box{
+        font-size:1.1rem;
+        padding:20px;
+    }
+
+    .character-img{
+        max-width:220px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <section class="hero">
-                <h1>กล่องเครื่องดื่มใช้แล้ว ขายได้!</h1>
-        <p>เปลี่ยนขยะเป็นรายได้ คืนสู่สังคมอย่างยั่งยืน<br>รวบรวมส่งขายได้ทุกวัน</p>
-    </section>
+<!-- HERO -->
 
-    <section class="content">
-        <div class="banner-container">
-            <img src="banner-01.jpg" alt="เหมืองแร่ในเมือง ขุมทรัพย์ที่ซ่อนอยู่">
+<header class="hero">
+
+    <div class="container hero-content">
+
+        <h1>
+            กล่องเครื่องดื่มใช้แล้ว ขายได้!
+        </h1>
+
+        <p>
+            เปลี่ยนขยะให้เป็นทรัพยากรที่มีค่า
+            สร้างรายได้ คืนสู่สังคม และช่วยโลกอย่างยั่งยืน
+        </p>
+
+    </div>
+
+</header>
+
+<!-- MAIN -->
+
+<section>
+
+<div class="container">
+
+    <!-- BANNER -->
+
+    <div class="banner-container">
+        <img src="banner-01.jpg" alt="">
+    </div>
+
+    <!-- TITLE -->
+
+    <div class="section-title">
+
+        <h2>
+            กล่องเครื่องดื่มใช้แล้ว
+            ไม่ใช่ขยะ แต่คือทรัพยากรที่มีค่า
+        </h2>
+
+        <p>
+            ทุกกล่องที่คุณแยก คือพลังในการสร้างรายได้
+            ลดขยะ และช่วยสิ่งแวดล้อม
+        </p>
+
+    </div>
+
+    <!-- GALLERY -->
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="p1.jpg" alt="">
         </div>
 
-        <h2>รับซื้อกล่องเครื่องดื่มทุกชนิด</h2>
-        
-        <div class="features">
-            <div class="feature-card">
-                <h3>📦 ชนิดของกล่อง</h3>
-<center>
-<a href="p1.jpg" target="_blank">
-    <img src="p1.jpg" alt="คลิก" width="250" height="150">
-</a>
-</center>
-
-                <p>กล่องนม, กล่องน้ำผลไม้, กล่องกะทิ</p>
-            </div>
-            <div class="feature-card">
-                <h3>✅ เงื่อนไขง่ายๆ</h3>
-<center>
-<a href="p2.jpg" target="_blank">
-    <img src="p2.jpg" alt="คลิก" width="250" height="150">
-</a>
-</center>
-
-                <p>รับทุกยี่ห้อ รับทุกขนาด</p>
-            </div>
+        <div class="gallery-item">
+            <img src="p2.jpg" alt="">
         </div>
-                 <h3>แยกกล่องนมและกล่องเครื่องดื่ม = สร้างรายได้ทันที!</h3>
-<br>
+
+    </div>
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+        <div class="feature-card">
+
+            <h3>📦 รับซื้อทุกประเภท</h3>
+
+            <p>
+                กล่องนม กล่องน้ำผลไม้
+                กล่องกะทิ และกล่องเครื่องดื่มทุกชนิด
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>♻️ ไม่ต้องล้าง</h3>
+
+            <p>
+                ไม่ต้องแกะ ไม่ต้องพับ
+                มีหลอดติดก็ขายได้
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>💰 เปลี่ยนเป็นรายได้</h3>
+
+            <p>
+                ทุกกล่องที่คุณแยก
+                คือมูลค่าที่ช่วยชุมชนและสิ่งแวดล้อม
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- CONTENT -->
+
+<section>
+
+<div class="container">
+
+<div class="content-box">
+
 <p>
-<strong>"กล่องเครื่องดื่มใช้แล้ว”</strong> อาจเป็นเพียงขยะชิ้นเล็กๆ ที่หลายคนมองข้าม แต่ในความเป็นจริง สิ่งเหล่านี้คือทรัพยากรที่มีมูลค่า และกำลังกลายเป็นอีกหนึ่งโอกาสสำคัญของการจัดการสิ่งแวดล้อมและเศรษฐกิจหมุนเวียนของประเทศไทย
-<br>
-<br>
-<strong> ดร.สมไทย วงษ์เจริญ </strong>กล่าวว่า ปัจจุบันประเทศไทยทิ้งกล่องเครื่องดื่มใช้แล้วมากกว่า 86,500 ตันต่อปี โดยที่หลายคนอาจไม่เคยทราบเลยว่า สิ่งที่ถูกมองว่าเป็น “ขยะ” เหล่านี้ แท้จริงแล้วคือทรัพยากรที่มีมูลค่า ซึ่งคิดเป็นเงินที่ถูกทิ้งออกจากบ้านรวมกว่า 430 ล้านบาทต่อปีผ่านการทิ้งกล่องเครื่องดื่มเหล่านี้ลงถังขยะ
-ที่ผ่านมา ขยะจำนวนมหาศาลถูกส่งไปยังหลุมฝังกลบ ทั้งที่วัสดุเหล่านี้ยังสามารถนำกลับมาใช้ประโยชน์ได้อีกมาก ไม่ว่าจะเป็นการแปรรูปเป็นวัสดุก่อสร้าง เยื่อกระดาษ หรือผลิตภัณฑ์รีไซเคิลชนิดต่างๆ ซึ่งล้วนช่วยลดการใช้ทรัพยากรธรรมชาติ ลดปริมาณขยะ และลดผลกระทบต่อสิ่งแวดล้อมในระยะยาว
-<br>
-<br>
-วงษ์พาณิชย์ จึงเดินหน้าผลักดันให้เกิดความร่วมมือจากประชาชนทั่วประเทศ ในการ <strong>“หยุดทิ้งกล่องเครื่องดื่มใช้แล้ว”</strong> และเปลี่ยนแนวคิดจาก <strong>“ขยะไร้ค่า”</strong> ให้กลายเป็น <strong>“ทรัพยากรที่ขายได้”</strong> ผ่านเครือข่ายวงษ์พาณิชย์กว่า 2,600 สาขาทั่วประเทศ ที่พร้อมรับซื้อกล่องเครื่องดื่มใช้แล้วเพื่อนำเข้าสู่ระบบรีไซเคิลอย่างถูกต้อง
-<br>
-<br>
-<strong>สิ่งสำคัญ</strong> คือ การคัดแยกกล่องเครื่องดื่มใช้แล้วเพื่อนำมาขายนั้น สามารถทำได้ง่ายมากกว่าที่หลายคนคิด เพราะไม่จำเป็นต้องเสียเวลาล้าง ไม่ต้องพับ ไม่ต้องทำความสะอาด และไม่ต้องกังวลว่ากล่องจะสมบูรณ์หรือไม่ แม้กล่องจะยับยู่ยี่ มีหลอดติดอยู่ หรือผ่านการใช้งานมาแล้ว ก็ยังสามารถนำมาขายได้ทั้งหมด
-ไม่ว่าจะเป็นกล่องนม กล่องไมโล กล่องกะทิ กล่องน้ำผลไม้ หรือกล่องเครื่องดื่มประเภทต่างๆ ล้วนสามารถเข้าสู่กระบวนการรีไซเคิลได้ทั้งสิ้น เพียงแค่ประชาชนเริ่มต้นจากการ <strong>“ไม่ทิ้งรวมกับขยะทั่วไป”</strong> และคัดแยกเก็บรวบรวมไว้ ก็สามารถเปลี่ยนขยะชิ้นเล็กๆ ให้กลายเป็นรายได้ และช่วยลดภาระด้านสิ่งแวดล้อมของประเทศได้อย่างมหาศาล
-<br>
-<br>
-ปัจจุบันสถานการณ์ราคาวัสดุเหลือใช้กำลังอยู่ในช่วงของการเปลี่ยนแปลงและปรับตัวสูงขึ้นอย่างคึกคัก ถือเป็นสัญญาณสำคัญที่สะท้อนให้เห็นว่า <strong>“ขยะรีไซเคิล”</strong> กำลังกลายเป็นทรัพยากรที่มีคุณค่ามากขึ้นในระบบเศรษฐกิจโลก หลายภาคส่วนเริ่มให้ความสำคัญกับการคัดแยกตั้งแต่ต้นทาง และประเทศไทยเองก็กำลังเข้าสู่ยุคของการบริหารจัดการทรัพยากรอย่างยั่งยืนมากขึ้นเช่นกัน
-<br>
-<br>
-สำหรับปีนี้ วงษ์พาณิชย์ ตั้งเป้าหมายการรวบรวมกล่องเครื่องดื่มใช้แล้วให้ได้ 500,000 กิโลกรัมต่อปี เพื่อเตรียมความพร้อมรองรับกำลังการจัดเก็บในระดับ 1,000,000 กิโลกรัมต่อปีในอนาคต ซึ่งเป้าหมายดังกล่าวจะเกิดขึ้นไม่ได้เลย หากขาดความร่วมมือจากประชาชน โรงเรียน ชุมชน หน่วยงาน และภาคเอกชนทั่วประเทศ เพราะทุกกล่องที่ถูกคัดแยก ไม่ได้เป็นเพียงขยะที่ลดลงหนึ่งชิ้น แต่คือการช่วยลดการใช้ทรัพยากรธรรมชาติ ลดปริมาณขยะในหลุมฝังกลบ ลดมลพิษ และสร้างคุณค่าทางเศรษฐกิจกลับคืนสู่สังคมไทยอีกครั้ง
-<br>
-<br>
-วันนี้…ถึงเวลาแล้วที่เราจะเปลี่ยนมุมมองต่อ <strong>“กล่องเครื่องดื่มใช้แล้ว”</strong> จากสิ่งที่เคยถูกทิ้ง ให้กลายเป็นทรัพยากรที่มีคุณค่า และร่วมกันสร้างสังคมรีไซเคิลอย่างยั่งยืนไปด้วยกัน
-<br>
-<br>
-สามารถติดตามข้อมูลและราคาวัสดุเหลือใช้เพิ่มเติมได้ที่ 
+<strong>“กล่องเครื่องดื่มใช้แล้ว”</strong>
+อาจเป็นเพียงขยะชิ้นเล็กๆ ที่หลายคนมองข้าม แต่ในความเป็นจริง 
+สิ่งเหล่านี้คือทรัพยากรที่มีมูลค่า 
+และกำลังกลายเป็นอีกหนึ่งโอกาสสำคัญของการจัดการสิ่งแวดล้อม
+และเศรษฐกิจหมุนเวียนของประเทศไทย </p>
 
+<p>
+<strong>ดร.สมไทย วงษ์เจริญ</strong>
+กล่าวว่า ปัจจุบันประเทศไทยทิ้งกล่องเครื่องดื่มใช้แล้วมากกว่า<strong> 86,500 ตัน</strong> ต่อปีโดยที่หลายคนอาจไม่เคยทราบเลยว่า สิ่งที่ถูกมองว่าเป็น “ขยะ” เหล่านี้ แท้จริงแล้วคือทรัพยากรที่มีมูลค่า ซึ่งคิดเป็นเงินที่ถูกทิ้งออกจากบ้านรวมกว่า <strong>430 ล้านบาท</strong> ต่อปีผ่านการทิ้งกล่องเครื่องดื่มเหล่านี้ลงถังขยะ ที่ผ่านมา ขยะจำนวนมหาศาลถูกส่งไปยังหลุมฝังกลบ ทั้งที่วัสดุเหล่านี้ยังสามารถนำกลับมาใช้ประโยชน์ได้อีกมาก ไม่ว่าจะเป็นการแปรรูปเป็นวัสดุก่อสร้าง เยื่อกระดาษ หรือผลิตภัณฑ์รีไซเคิลชนิดต่างๆ ซึ่งล้วนช่วยลดการใช้ทรัพยากรธรรมชาติ ลดปริมาณขยะ และลดผลกระทบต่อสิ่งแวดล้อมในระยะยาว
+</p>
+
+<p>
+วงษ์พาณิชย์ จึงเดินหน้าผลักดันให้เกิดความร่วมมือจากประชาชนทั่วประเทศ ในการ <strong>“หยุดทิ้งกล่องเครื่องดื่มใช้แล้ว”</strong> และเปลี่ยนแนวคิดจาก <strong>“ขยะไร้ค่า”</strong> ให้กลายเป็น <strong>“ทรัพยากรที่ขายได้”</strong> ผ่านเครือข่ายวงษ์พาณิชย์กว่า <strong>2,600 สาขาทั่วประเทศ</strong> ที่พร้อมรับซื้อกล่องเครื่องดื่มใช้แล้วเพื่อนำเข้าสู่ระบบรีไซเคิลอย่างถูกต้อง </p>
+
+<p>
+สิ่งสำคัญ คือ การคัดแยกกล่องเครื่องดื่มใช้แล้วเพื่อนำมาขายนั้น สามารถทำได้ง่ายมากกว่าที่หลายคนคิด เพราะไม่จำเป็นต้องเสียเวลาล้าง ไม่ต้องพับ ไม่ต้องทำความสะอาด และไม่ต้องกังวลว่ากล่องจะสมบูรณ์หรือไม่ แม้กล่องจะยับยู่ยี่ มีหลอดติดอยู่ หรือผ่านการใช้งานมาแล้ว ก็ยังสามารถนำมาขายได้ทั้งหมด ไม่ว่าจะเป็นกล่องนม กล่องไมโล กล่องกะทิ กล่องน้ำผลไม้ หรือกล่องเครื่องดื่มประเภทต่างๆ ล้วนสามารถเข้าสู่กระบวนการรีไซเคิลได้ทั้งสิ้น เพียงแค่ประชาชนเริ่มต้นจากการ <strong>“ไม่ทิ้งรวมกับขยะทั่วไป”</strong> และคัดแยกเก็บรวบรวมไว้ ก็สามารถเปลี่ยนขยะชิ้นเล็กๆ ให้กลายเป็นรายได้ และช่วยลดภาระด้านสิ่งแวดล้อมของประเทศได้อย่างมหาศาล 
+</p>
+
+<p>
+ปัจจุบันสถานการณ์ราคาวัสดุเหลือใช้กำลังอยู่ในช่วงของการเปลี่ยนแปลงและปรับตัวสูงขึ้นอย่างคึกคัก ถือเป็นสัญญาณสำคัญที่สะท้อนให้เห็นว่า <strong>“ขยะรีไซเคิล”</strong> กำลังกลายเป็นทรัพยากรที่มีคุณค่ามากขึ้นในระบบเศรษฐกิจโลก หลายภาคส่วนเริ่มให้ความสำคัญกับการคัดแยกตั้งแต่ต้นทาง และประเทศไทยเองก็กำลังเข้าสู่ยุคของการบริหารจัดการทรัพยากรอย่างยั่งยืนมากขึ้นเช่นกัน 
+</p>
+
+<p>
+สำหรับปีนี้ <strong>วงษ์พาณิชย์</strong> ตั้งเป้าหมายการรวบรวมกล่องเครื่องดื่มใช้แล้วให้ได้ <strong>500,000 กิโลกรัมต่อปี</strong> เพื่อเตรียมความพร้อมรองรับกำลังการจัดเก็บในระดับ <strong>1,000,000 กิโลกรัมต่อปี</strong> ในอนาคต ซึ่งเป้าหมายดังกล่าวจะเกิดขึ้นไม่ได้เลย หากขาดความร่วมมือจากประชาชน โรงเรียน ชุมชน หน่วยงาน และภาคเอกชนทั่วประเทศ เพราะทุกกล่องที่ถูกคัดแยก ไม่ได้เป็นเพียงขยะที่ลดลงหนึ่งชิ้น แต่คือการช่วยลดการใช้ทรัพยากรธรรมชาติ ลดปริมาณขยะในหลุมฝังกลบ ลดมลพิษ และสร้างคุณค่าทางเศรษฐกิจกลับคืนสู่สังคมไทยอีกครั้ง 
+</p>
+
+<p>
+วันนี้…ถึงเวลาแล้วที่เราจะเปลี่ยนมุมมองต่อ <strong>“กล่องเครื่องดื่มใช้แล้ว”</strong> จากสิ่งที่เคยถูกทิ้ง ให้กลายเป็นทรัพยากรที่มีคุณค่า และร่วมกันสร้างสังคมรีไซเคิลอย่างยั่งยืนไปด้วยกัน 
+</p>
+
+<p>
+<center>สามารถติดตามข้อมูลและราคาวัสดุเหลือใช้เพิ่มเติมได้ที่ 
  <a href="http://www.wongpanit.com" target="_blank">www.wongpanit</a>
-<br>
-<br>
-<br>
-
-  <center>
-<a href="info.jpg" target="_blank">
-    <img src="info.jpg" alt="คลิก" width="300" height="200">
-</a>
 </center>
 </p>
-        <div class="highlight-box">
-            " กล่องเครื่องดื่ม ใช้แล้วขายได้! "
-        </div>
-<br>
-        <img src="ChatGPT.jpg" alt="มาสคอตวงษ์พาณิชย์" class="character-img">
 
-    </section>
+<div class="highlight-box">
+    “กล่องเครื่องดื่ม ใช้แล้วขายได้!”
+</div>
 
-    <section class="cta">
-        <h2>ขายได้ ที่วงษ์พาณิชย์ทั่วไทย ♻️</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px;">แยกง่าย เริ่มที่ตัวเรา ทุกกล่องที่คุณแยก คือพลังเปลี่ยนโลก</p>
-        
-        <a href="http://www.wongpanit.com" target="_blank" class="btn">🌐 เว็บไซต์วงษ์พาณิชย์</a>
-        <a href="https://www.facebook.com/wongpanit.page" target="_blank" class="btn btn-facebook">📘 Facebook Page</a>
-    </section>
+<a href="info.jpg" target="_blank">
+<img src="info.jpg" alt="" class="info-img">
+</a>
+<img src="mascot.jpg" alt="" class="character-img">
 
-    <script>
-        // ใส่ Script เพิ่มเติมสำหรับ Effect เมื่อเลื่อนหน้าจอ
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
+</div>
 
-            const cards = document.querySelectorAll('.feature-card');
-            cards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'all 0.8s ease-out';
-                observer.observe(card);
-            });
-        });
-    </script>
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+    <h2>
+        ทุกกล่องที่คุณแยก
+        คือพลังเปลี่ยนโลก ♻️
+    </h2>
+
+    <p>
+        เริ่มต้นง่ายๆ จากบ้าน โรงเรียน ชุมชน
+        และองค์กรของคุณ ร่วมสร้างสังคมรีไซเคิล
+        อย่างยั่งยืนไปด้วยกัน
+    </p>
+
+    <div class="cta-buttons">
+
+        <a href="https://www.wongpanit.com"
+        target="_blank"
+        class="btn btn-primary">
+            🌐 เว็บไซต์วงษ์พาณิชย์
+        </a>
+
+        <a href="https://www.facebook.com/wongpanit.page"
+        target="_blank"
+        class="btn btn-facebook">
+            📘 Facebook
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Wongpanit Responsive Landing Page
+</footer>
+
 </body>
 </html>
