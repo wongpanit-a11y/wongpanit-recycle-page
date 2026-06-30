@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>กล่องเครื่องดื่มใช้แล้ว ขายได้ | วงษ์พาณิชย์</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --green:#0b7a33;
+    --green-dark:#065223;
+    --green-light:#edf8f0;
+    --gold:#ffc928;
+    --white:#ffffff;
+    --text:#222;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:24px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Kanit',sans-serif;
+    background:#f4f8f4;
+    color:var(--text);
+    overflow-x:hidden;
+    line-height:1.8;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    linear-gradient(135deg,var(--green),var(--green-dark));
+    color:white;
+    padding:90px 20px;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"♻";
+    position:absolute;
+    right:-50px;
+    top:-50px;
+    font-size:320px;
+    opacity:.05;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(2.3rem,5vw,5rem);
+    line-height:1.1;
+    font-weight:800;
+    color:var(--gold);
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:clamp(1rem,2vw,1.35rem);
+    max-width:900px;
+    margin:auto;
+    opacity:.95;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#111;
+    box-shadow:0 10px 20px rgba(255,201,40,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+}
+
+.btn-facebook{
+    background:#1877f2;
+    color:white;
+}
+
+.btn-facebook:hover{
+    transform:translateY(-5px);
+}
+
+/* SECTION */
+
+section{
+    padding:20px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:clamp(2rem,4vw,3.2rem);
+    color:var(--green-dark);
+    margin-bottom:15px;
+    line-height:1.2;
+}
+
+.section-title p{
+    color:#555;
+    max-width:800px;
+    margin:auto;
+}
+
+/* BANNER */
+
+.banner-container{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin-bottom:50px;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    background:white;
+}
+
+.gallery-item img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.05);
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:45px;
+}
+
+.feature-card{
+    background:white;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+    text-align:center;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+.feature-card h3{
+    color:var(--green-dark);
+    margin-bottom:15px;
+    font-size:1.4rem;
+}
+
+.feature-card p{
+    color:#555;
+}
+
+/* CONTENT */
+
+.content-box{
+    background:white;
+    padding:45px;
+    border-radius:30px;
+    box-shadow:var(--shadow);
+}
+
+.content-box p{
+    margin-bottom:24px;
+    color:#333;
+    font-size:1.05rem;
+}
+
+.content-box strong{
+    color:var(--green-dark);
+}
+
+.highlight-box{
+    margin:45px 0;
+    background:linear-gradient(135deg,#fff4c7,#ffe483);
+    padding:28px;
+    border-radius:22px;
+    border-left:7px solid var(--gold);
+    font-size:clamp(1.2rem,2vw,1.6rem);
+    font-weight:700;
+    text-align:center;
+    color:#654700;
+}
+
+/* INFO */
+
+.info-img{
+    width:100%;
+    border-radius:24px;
+    margin-top:40px;
+    box-shadow:var(--shadow);
+}
+
+/* MASCOT */
+
+.character-img{
+    width:min(320px,90%);
+    margin:50px auto 0;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* CTA */
+
+.cta{
+    background:
+    linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
+    linear-gradient(135deg,var(--green-dark),var(--green));
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.cta h2{
+    font-size:clamp(2rem,4vw,3.5rem);
+    color:var(--gold);
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.cta p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+.cta-buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#04200e;
+    color:rgba(255,255,255,.7);
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    section{
+        padding:55px 0;
+    }
+
+    .hero{
+        padding:70px 20px;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .hero-buttons,
+    .cta-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .content-box{
+        padding:25px 20px;
+        border-radius:22px;
+    }
+
+    .content-box p{
+        font-size:1rem;
+        line-height:1.9;
+    }
+
+    .gallery-item img{
+        height:250px;
+    }
+
+    .highlight-box{
+        font-size:1.1rem;
+        padding:20px;
+    }
+
+    .character-img{
+        max-width:220px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="container hero-content">
+
+        <h1>
+            กล่องเครื่องดื่มใช้แล้ว ขายได้!
+        </h1>
+
+        <p>
+            เปลี่ยนขยะให้เป็นทรัพยากรที่มีค่า
+            สร้างรายได้ คืนสู่สังคม และช่วยโลกอย่างยั่งยืน
+        </p>
+
+    </div>
+
+</header>
+
+<!-- MAIN -->
+
+<section>
+
+<div class="container">
+
+    <!-- BANNER -->
+
+    <div class="banner-container">
+        <img src="banner-01.jpg" alt="">
+    </div>
+
+    <!-- TITLE -->
+
+    <div class="section-title">
+
+        <h2>
+            กล่องเครื่องดื่มใช้แล้ว
+            ไม่ใช่ขยะ แต่คือทรัพยากรที่มีค่า
+        </h2>
+
+        <p>
+            ทุกกล่องที่คุณแยก คือพลังในการสร้างรายได้
+            ลดขยะ และช่วยสิ่งแวดล้อม
+        </p>
+
+    </div>
+
+    <!-- GALLERY -->
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="p1.jpg" alt="">
+        </div>
+
+        <div class="gallery-item">
+            <img src="p2.jpg" alt="">
+        </div>
+
+    </div>
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+        <div class="feature-card">
+
+            <h3>📦 รับซื้อทุกประเภท</h3>
+
+            <p>
+                กล่องนม กล่องน้ำผลไม้
+                กล่องกะทิ และกล่องเครื่องดื่มทุกชนิด
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>♻️ ไม่ต้องล้าง</h3>
+
+            <p>
+                ไม่ต้องแกะ ไม่ต้องพับ
+                มีหลอดติดก็ขายได้
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>💰 เปลี่ยนเป็นรายได้</h3>
+
+            <p>
+                ทุกกล่องที่คุณแยก
+                คือมูลค่าที่ช่วยชุมชนและสิ่งแวดล้อม
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- CONTENT -->
+
+<section>
+
+<div class="container">
+
+<div class="content-box">
+
+<p>
+<strong>“กล่องเครื่องดื่มใช้แล้ว”</strong>
+อาจเป็นเพียงขยะชิ้นเล็กๆ ที่หลายคนมองข้าม แต่ในความเป็นจริง 
+สิ่งเหล่านี้คือทรัพยากรที่มีมูลค่า 
+และกำลังกลายเป็นอีกหนึ่งโอกาสสำคัญของการจัดการสิ่งแวดล้อม
+และเศรษฐกิจหมุนเวียนของประเทศไทย </p>
+
+<p>
+<strong>ดร.สมไทย วงษ์เจริญ</strong>
+กล่าวว่า ปัจจุบันประเทศไทยทิ้งกล่องเครื่องดื่มใช้แล้วมากกว่า<strong> 86,500 ตัน</strong> ต่อปีโดยที่หลายคนอาจไม่เคยทราบเลยว่า สิ่งที่ถูกมองว่าเป็น “ขยะ” เหล่านี้ แท้จริงแล้วคือทรัพยากรที่มีมูลค่า ซึ่งคิดเป็นเงินที่ถูกทิ้งออกจากบ้านรวมกว่า <strong>430 ล้านบาท</strong> ต่อปีผ่านการทิ้งกล่องเครื่องดื่มเหล่านี้ลงถังขยะ ที่ผ่านมา ขยะจำนวนมหาศาลถูกส่งไปยังหลุมฝังกลบ ทั้งที่วัสดุเหล่านี้ยังสามารถนำกลับมาใช้ประโยชน์ได้อีกมาก ไม่ว่าจะเป็นการแปรรูปเป็นวัสดุก่อสร้าง เยื่อกระดาษ หรือผลิตภัณฑ์รีไซเคิลชนิดต่างๆ ซึ่งล้วนช่วยลดการใช้ทรัพยากรธรรมชาติ ลดปริมาณขยะ และลดผลกระทบต่อสิ่งแวดล้อมในระยะยาว
+</p>
+
+<p>
+วงษ์พาณิชย์ จึงเดินหน้าผลักดันให้เกิดความร่วมมือจากประชาชนทั่วประเทศ ในการ <strong>“หยุดทิ้งกล่องเครื่องดื่มใช้แล้ว”</strong> และเปลี่ยนแนวคิดจาก <strong>“ขยะไร้ค่า”</strong> ให้กลายเป็น <strong>“ทรัพยากรที่ขายได้”</strong> ผ่านเครือข่ายวงษ์พาณิชย์กว่า <strong>2,600 สาขาทั่วประเทศ</strong> ที่พร้อมรับซื้อกล่องเครื่องดื่มใช้แล้วเพื่อนำเข้าสู่ระบบรีไซเคิลอย่างถูกต้อง </p>
+
+<p>
+สิ่งสำคัญ คือ การคัดแยกกล่องเครื่องดื่มใช้แล้วเพื่อนำมาขายนั้น สามารถทำได้ง่ายมากกว่าที่หลายคนคิด เพราะไม่จำเป็นต้องเสียเวลาล้าง ไม่ต้องพับ ไม่ต้องทำความสะอาด และไม่ต้องกังวลว่ากล่องจะสมบูรณ์หรือไม่ แม้กล่องจะยับยู่ยี่ มีหลอดติดอยู่ หรือผ่านการใช้งานมาแล้ว ก็ยังสามารถนำมาขายได้ทั้งหมด ไม่ว่าจะเป็นกล่องนม กล่องไมโล กล่องกะทิ กล่องน้ำผลไม้ หรือกล่องเครื่องดื่มประเภทต่างๆ ล้วนสามารถเข้าสู่กระบวนการรีไซเคิลได้ทั้งสิ้น เพียงแค่ประชาชนเริ่มต้นจากการ <strong>“ไม่ทิ้งรวมกับขยะทั่วไป”</strong> และคัดแยกเก็บรวบรวมไว้ ก็สามารถเปลี่ยนขยะชิ้นเล็กๆ ให้กลายเป็นรายได้ และช่วยลดภาระด้านสิ่งแวดล้อมของประเทศได้อย่างมหาศาล 
+</p>
+
+<p>
+ปัจจุบันสถานการณ์ราคาวัสดุเหลือใช้กำลังอยู่ในช่วงของการเปลี่ยนแปลงและปรับตัวสูงขึ้นอย่างคึกคัก ถือเป็นสัญญาณสำคัญที่สะท้อนให้เห็นว่า <strong>“ขยะรีไซเคิล”</strong> กำลังกลายเป็นทรัพยากรที่มีคุณค่ามากขึ้นในระบบเศรษฐกิจโลก หลายภาคส่วนเริ่มให้ความสำคัญกับการคัดแยกตั้งแต่ต้นทาง และประเทศไทยเองก็กำลังเข้าสู่ยุคของการบริหารจัดการทรัพยากรอย่างยั่งยืนมากขึ้นเช่นกัน 
+</p>
+
+<p>
+สำหรับปีนี้ <strong>วงษ์พาณิชย์</strong> ตั้งเป้าหมายการรวบรวมกล่องเครื่องดื่มใช้แล้วให้ได้ <strong>500,000 กิโลกรัมต่อปี</strong> เพื่อเตรียมความพร้อมรองรับกำลังการจัดเก็บในระดับ <strong>1,000,000 กิโลกรัมต่อปี</strong> ในอนาคต ซึ่งเป้าหมายดังกล่าวจะเกิดขึ้นไม่ได้เลย หากขาดความร่วมมือจากประชาชน โรงเรียน ชุมชน หน่วยงาน และภาคเอกชนทั่วประเทศ เพราะทุกกล่องที่ถูกคัดแยก ไม่ได้เป็นเพียงขยะที่ลดลงหนึ่งชิ้น แต่คือการช่วยลดการใช้ทรัพยากรธรรมชาติ ลดปริมาณขยะในหลุมฝังกลบ ลดมลพิษ และสร้างคุณค่าทางเศรษฐกิจกลับคืนสู่สังคมไทยอีกครั้ง 
+</p>
+
+<p>
+วันนี้…ถึงเวลาแล้วที่เราจะเปลี่ยนมุมมองต่อ <strong>“กล่องเครื่องดื่มใช้แล้ว”</strong> จากสิ่งที่เคยถูกทิ้ง ให้กลายเป็นทรัพยากรที่มีคุณค่า และร่วมกันสร้างสังคมรีไซเคิลอย่างยั่งยืนไปด้วยกัน 
+</p>
+
+<p><strong>
+
+<center><a href="index.html"><<< คลิก  </a>[อ่านบทความถัดไป]
+</center></strong>
+</p>
+
+<p>
+<center>สามารถติดตามข้อมูลและราคาวัสดุเหลือใช้เพิ่มเติมได้ที่ 
+ <a href="http://www.wongpanit.com">www.wongpanit</a>
+</center>
+</p>
+
+<div class="highlight-box">
+    “🧃 กล่องเครื่องดื่ม ใช้แล้วขายได้! 💰”
+</div>
+
+<a href="info.jpg" target="_blank">
+<img src="info.jpg" alt="" class="info-img">
+</a>
+<img src="mascot.jpg" alt="" class="character-img">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+    <h2>
+        ทุกกล่องที่คุณแยก
+        คือพลังเปลี่ยนโลก ♻️
+    </h2>
+
+    <p>
+        เริ่มต้นง่ายๆ จากบ้าน โรงเรียน ชุมชน
+        และองค์กรของคุณ ร่วมสร้างสังคมรีไซเคิล
+        อย่างยั่งยืนไปด้วยกัน
+    </p>
+
+    <div class="cta-buttons">
+
+        <a href="https://wongpanit.com/"
+        class="btn btn-primary">
+            🌐 เว็บไซต์วงษ์พาณิชย์
+        </a>
+
+        <a href="https://www.facebook.com/wongpanit.page"
+        class="btn btn-facebook">
+            📘 Facebook
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Wongpanit Responsive Landing Page
+</footer>
+
+</body>
+</html>
